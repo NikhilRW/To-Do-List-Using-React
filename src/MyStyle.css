@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+.webTitle{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: bolder;
+    color: white;
+}
+.nikhil{
+    background:  rgba(255, 255, 255, 0.148) ;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(22210px);
+}
+.nikhil1{
+    background: linear-gradient(to bottom right, #55566a, #282834);
+}
+.nikhil2{
+    color:white;
+    background-image: linear-gradient(to right, #36D1DC 0%, #5B86E5 100%);
+}
+.nikhil2:focus{
+    outline: none;
+}
+.nikhil2::placeholder{
+    font-weight: 500;
+    color:#ffffffcc;
+}
+.nikhil3{
+    color: rgba(var(--text-color));
+    border: 2px double transparent;
+    background-image: linear-gradient(rgb(255, 165, 0), rgb(255, 140, 0)), radial-gradient(circle at left top, rgb(255, 115, 0), rgb(147, 81, 0));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
