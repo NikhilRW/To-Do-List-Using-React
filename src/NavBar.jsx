@@ -5,7 +5,9 @@ import webLogo from './assets/weblogo.png'
 import { IoMdHome,IoIosInformationCircle,IoMdContact } from 'react-icons/io';
 import "react-icons";
 import NavItem from './NavItem';
+import { MdDarkMode } from "react-icons/md";
 import { IconContext } from 'react-icons';
+import DarkModeButton from './DarkModeButton';
 function NavBar() {
     const [isHomeHovered, setIsHomeHovered] = useState(false);
     return (
@@ -16,6 +18,9 @@ function NavBar() {
                     <h4 className='webTitle '>To Do Tracker</h4>
                 </span>
                 <ul className='flex gap-5 text-white text-lg font-semibold'>
+                <span>
+                <DarkModeButton/>
+                </span>
                 <NavItem icon={IoMdHome} label="Home" />
                 <NavItem icon={IoIosInformationCircle} label="About" />
                 <NavItem icon={IoMdContact} label="Contact" />

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState,useContext} from 'react'
 import './App.css'
 import './MyStyle.css'
 import { MdOutlineRemoveRedEye } from "react-icons/md";
@@ -9,8 +9,10 @@ import { FaRegSquareCheck } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
 import { FaEyeSlash } from "react-icons/fa6";
 import { LuListTodo } from "react-icons/lu";
+import { DarkThemeContext } from './context/context';
 function ToDoListContainer() {
     const [newTask,setNewTask] = useState("");
+    const {isDark,SetIsDark} = useContext(DarkThemeContext);
     const [todos, setNewToDo] = useState(() => {
         const storedData = localStorage.getItem("data");
         return storedData ? JSON.parse(storedData) : [];
@@ -54,8 +56,8 @@ function ToDoListContainer() {
         <span className='flex pt-6 pb-3  justify-center relative '>
             <input onKeyDown={(e)=>{
                 e.key == "Enter" && handleAdd()
-            }}  ref={inputTask} value={newTask} onChange={(e)=>setNewTask(e.target.value)} type="text" placeholder='Add A Task' className='nikhil2 font-sans font-bold w-full rounded-3xl px-5 py-2' />
-            <button className='absolute right-0 rounded-full top-[27%] nikhil3 p-3' onClick={handleAdd}>
+            }}  ref={inputTask} value={newTask} onChange={(e)=>setNewTask(e.target.value)}  type="text" placeholder='Add A Task' className={`nikhil2   font-sans font-bold w-full rounded-3xl px-5 py-2 bg-gradient-to-r ${isDark ? 'placeholder:text-white text-white from-blue-400 to-blue-800 ' : 'from-blue-50 to-blue-100 text-black placeholder:text-black '}`} />
+            <button className={`absolute right-0 rounded-full top-[28%] nikhil3 p-3`} onClick={handleAdd}>
                 <FaPlus fill='white'/>
             </button>
         </span>
@@ -77,7 +79,7 @@ function ToDoListContainer() {
                 }}>
                 {todo.isCompleted?<FaRegSquareCheck fill='white' size={"25px"} />:<FaRegSquare fill='white' size={"25px"} />}
                 </button>
-                <p className={`text-white text-lg font-[rubik] ${todo.isCompleted?"line-through":""}`}>{todo.newTask}</p>
+                <p className={`text-white text-lg font-[rubik]  ${todo.isCompleted?"line-through":""}`}>{todo.newTask}</p>
                 </span>
                 <span className='flex'>
                 <CiEdit className="cursor-pointer" size={25} fill='white' onClick={()=>{handleEdit(todo,index)}}/>
